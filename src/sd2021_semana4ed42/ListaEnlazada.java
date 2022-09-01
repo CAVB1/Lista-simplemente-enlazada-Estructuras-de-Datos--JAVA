@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sd2021_semana4ed42;
+package eprimerparcial_ejercicio2;
 
 /**
  *
  * @author lambda
  */
-public class ListaEnlazada <E> {
+public class ListaEnlazada <E extends Integer> {
 
     private Nodo <E> ultimo_nodo = null;
 
@@ -182,6 +182,30 @@ public class ListaEnlazada <E> {
             } while (auxiliar2 != null);
         }
           System.out.println(toString());
+      }
+      
+      public void ordenarNodos(){
+          if(!isEmpty()){
+              Nodo <E> auxiliar=ultimo_nodo;
+              Nodo <E> auxiliar2=auxiliar.getSiguiente();
+              do{
+                  do{
+                    if(auxiliar.getDato()<auxiliar2.getDato()){
+                        E r=auxiliar.getDato();
+                        auxiliar.setDato(auxiliar2.getDato());
+                        auxiliar2.setDato(r);
+                    }
+
+                    auxiliar2=auxiliar2.getSiguiente();
+                    
+                  }while(auxiliar2!=null);
+                  
+                  auxiliar=auxiliar.getSiguiente();
+                  auxiliar2=ultimo_nodo;
+                  
+              } while(auxiliar!=null);
+          }
+         
       }
 
 }
